@@ -4,11 +4,13 @@ import (
 	. "pokedb/enums"
 	"time"
 
+	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
 
 type Expansion struct {
 	ID                  uint `gorm:"primaryKey"`
+	SeriesId            uuid.UUID
 	TrainerGalleryID    string
 	SetNumber           uint
 	Name                string
