@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pokedb
+---
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: pokedb-pokedb
+  namespace: pokedb
+spec:
+  teamId: "pokedb"
+  volume:
+    size: 1Gi
+  numberOfInstances: 1
+  enableLogicalBackup: true
+  users:
+    mythicalsora:
+      - superuser
+      - createdb
+    pokedb: []
+  databases:
+    pokedb: pokedb
+  postgresql:
+    version: "15"
