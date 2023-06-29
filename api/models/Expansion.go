@@ -1,7 +1,7 @@
 package models
 
 import (
-	. "pokedb/enums"
+	"pokedb/enums"
 	"time"
 
 	"github.com/google/uuid"
@@ -9,19 +9,19 @@ import (
 )
 
 type Expansion struct {
-	ID                  uint `gorm:"primaryKey"`
-	SeriesId            uuid.UUID
-	TrainerGalleryID    string
-	SetNumber           uint
-	Name                string
-	Abbreviation        string
-	ExpansionType       Expansion_Type
-	CardCount           uint
-	TrainerGalleryCount uint
-	SecretCardCount     uint
-	Cards               []Card `gorm:"foreignKey:Expansion"`
-	ReleaseDate         time.Time
-	CreatedAt           time.Time
-	UpdatedAt           time.Time
-	DeletedAt           gorm.DeletedAt `gorm:"index"`
+	ID                  uint                 `gorm:"primaryKey" json:"id"`
+	SeriesId            uuid.UUID            `json:"series_id"`
+	TrainerGalleryID    string               `json:"trainer_gallery_id"`
+	SetNumber           uint                 `json:"set_number"`
+	Name                string               `json:"name"`
+	Abbreviation        string               `json:"abbreviation"`
+	ExpansionType       enums.Expansion_Type `json:"expansion_type"`
+	CardCount           uint                 `json:"card_count"`
+	TrainerGalleryCount uint                 `json:"trainer_gallery_count"`
+	SecretCardCount     uint                 `json:"secret_card_count"`
+	Cards               []Card               `gorm:"foreignKey:Expansion" json:"cards"`
+	ReleaseDate         time.Time            `json:"release_date"`
+	CreatedAt           time.Time            `json:"created_at"`
+	UpdatedAt           time.Time            `json:"updated_at"`
+	DeletedAt           gorm.DeletedAt       `gorm:"index" json:"deleted_at"`
 }

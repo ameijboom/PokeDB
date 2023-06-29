@@ -8,18 +8,18 @@ import (
 )
 
 type Card struct {
-	ID               uint `gorm:"primaryKey"`
-	Count            uint
-	Name             string
-	HP               uint
-	Type             enums.PokemonType
-	Stage            enums.Stage
-	Variant          enums.Variant
-	IsTG             bool
-	TrainerGalleryID string
-	Expansion        uint
-	Illustrator      string
-	CreatedAt        time.Time
-	UpdatedAt        time.Time
-	DeletedAt        gorm.DeletedAt `gorm:"index"`
+	ID               uint              `gorm:"primaryKey" json:"id"`
+	Count            uint              `json:"count"`
+	Name             string            `json:"name"`
+	HP               uint              `json:"hp"`
+	Type             enums.PokemonType `json:"type"`
+	Stage            enums.Stage       `json:"stage"`
+	Variant          enums.Variant     `json:"variant"`
+	IsTG             bool              `json:"is_tg"`
+	TrainerGalleryID string            `json:"trainer_gallery_id"`
+	Expansion        uint              `json:"-"`
+	Illustrator      string            `json:"illustrator"`
+	CreatedAt        time.Time         `json:"created_at"`
+	UpdatedAt        time.Time         `json:"updated_at"`
+	DeletedAt        gorm.DeletedAt    `gorm:"index" json:"deleted_at"`
 }
