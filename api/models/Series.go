@@ -15,3 +15,7 @@ type Series struct {
 	UpdatedAt  time.Time      `json:"updated_at"`
 	DeletedAt  gorm.DeletedAt `gorm:"index" json:"deleted_at"`
 }
+
+type SeriesInput struct {
+	Name string `json:"name" binding:"required"`
+}

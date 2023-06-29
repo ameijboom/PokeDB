@@ -15,6 +15,7 @@ func main() {
 
 	router.GET("/api/series", controllers.GetSeries)
 	router.GET("/api/series/:id", controllers.GetSeriesByID)
+	router.POST("/api/series", controllers.CreateSeries)
 
 	router.Run()
 }
